@@ -1,0 +1,11 @@
+services:                                                                                                                                                                                                 
+  gomoku-easy:
+    image: morii/pnpm
+    container_name: gomoku-easy
+    ports:
+      - 0.0.0.0:80:80
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: pnpm dev:server
+    restart: always
