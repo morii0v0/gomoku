@@ -1,6 +1,0 @@
-
-> gomoku@1.0.0 dev:server /root/gomoku
-> node server.js
-
-Server: http://localhost:3001
-WebSocket: ws://localhost:3001

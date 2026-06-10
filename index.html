@@ -3,17 +3,60 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>五子棋</title>
+<title>五子棋 - 联机版</title>
 <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
-<div class="wrap">
-  <h1>五子棋</h1>
-  <div id="status">连接中...</div>
-  <canvas id="board"></canvas>
-  <div id="last-move"></div>
-  <button id="restart" disabled>再来一局</button>
+
+<!-- Room Join Modal -->
+<div id="modal-overlay">
+  <div id="modal">
+    <h2>加入房间</h2>
+    <div class="form-group">
+      <label for="name-input">昵称</label>
+      <input id="name-input" type="text" maxlength="12" placeholder="输入昵称" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label>选择房间</label>
+      <div id="room-list"></div>
+    </div>
+    <button id="join-btn" disabled>加入</button>
+  </div>
 </div>
+
+<!-- Main Layout -->
+<div id="app">
+  <div class="left-panel">
+    <h1>五子棋</h1>
+    <div id="status">连接中...</div>
+    <div id="room-info"></div>
+    <canvas id="board"></canvas>
+    <div class="controls">
+      <button id="undo-btn" disabled>悔棋</button>
+      <button id="restart-btn" disabled>再来一局</button>
+    </div>
+    <div id="undo-prompt" class="hidden">
+      <span id="undo-prompt-text"></span>
+      <button id="undo-accept">同意</button>
+      <button id="undo-reject">拒绝</button>
+    </div>
+  </div>
+
+  <button id="chat-toggle" title="切换聊天面板">💬</button>
+
+  <div class="right-panel" id="right-panel">
+    <div class="chat-header">
+      <span>聊天</span>
+      <button id="chat-collapse" title="折叠">◀</button>
+    </div>
+    <div id="chat-messages"></div>
+    <div class="chat-input-wrap">
+      <input id="chat-input" type="text" maxlength="200" placeholder="输入消息..." autocomplete="off">
+      <button id="chat-send">发送</button>
+    </div>
+  </div>
+</div>
+
 <script type="module" src="/src/main.js"></script>
 </body>
 </html>

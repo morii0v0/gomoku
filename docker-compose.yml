@@ -1,11 +1,11 @@
 services:                                                                                                                                                                                                 
-  gomoku-easy:
-    image: morii/pnpm
-    container_name: gomoku-easy
+  gomoku:
+    image: denoland/deno
+    container_name: gomoku
     ports:
-      - 0.0.0.0:80:80
+      - 0.0.0.0:80:3001
     working_dir: /app
     volumes:
       - ./:/app
-    command: pnpm dev:server
+    command: deno task dev
     restart: always
